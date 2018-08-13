@@ -1,0 +1,21 @@
+cd /Users/lulu/Documents/Self_Improvement/Coursera_MachineLearning/wk2_project1/ex1
+data = load('ex1data1.txt');
+X = data(:, 1); y = data(:, 2);
+m = length(y); % number of training examples
+
+% Plot Data
+% Note: You have to complete the code in plotData.m
+plotData(X, y);
+X = [ones(m, 1), data(:,1)]; % Add a column of ones to x
+theta = zeros(2, 1); % initialize fitting parameters
+
+% Some gradient descent settings
+iterations = 1500;
+alpha = 0.01;
+
+pred = X*theta;
+sqErr=(pred-y).^2;
+J=1/(2*m)*sum(sqErr);
+
+% Use for loop and calculate theta for 1500 times,
+% and then plug in the theta value to original cost function 
